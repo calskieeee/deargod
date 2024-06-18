@@ -13,14 +13,14 @@ class ProdiController extends Controller
 {
     public function index()
     {
-        $data = ['nama' => '', 'foto' =>'soohee.webp'];
+        $data = ['nama' => 'Calskieeee', 'foto' =>'soohee.webp'];
         $prodi = Prodi::all();
         return view('prodi.index', compact ('data', 'prodi')); 
     }
 
     public function create()
     {
-        $data = ['nama' => '', 'foto' =>'soohee.webp'];
+        $data = ['nama' => 'Calskieeee', 'foto' =>'soohee.webp'];
         return view('prodi.create', compact(['data']));
     }
 
@@ -40,14 +40,14 @@ class ProdiController extends Controller
             return redirect ('/prodi');
     }
 
-    public function edit(String $id)
+    public function edit (string $id)
     {
-        $data = ['nama' => '', 'foto' =>'soohee.webp'];
-        $prodi = Prodi::find($id);
-        return view('prodi.edit', compact(['data', 'prodi']));
+        $data = ['nama' => 'Calskieeee', 'foto' =>'soohee.webp'];
+        $prodi = prodi::find($id);
+        return view('prodi.edit', compact(['data' ,'prodi']));
     }
 
-    public function update(Request $request, string $id)
+    public function update (Request $request, string $id)
     {
         $validateData = $request->validate(
             [
@@ -59,15 +59,16 @@ class ProdiController extends Controller
                 'nama_prodi.max' => 'Nama Prodi maksimal 255 karakter'
             ]
         );
-        Prodi::where('id', $id)->update($validateData);
+        prodi::where('id', $id)->update($validateData);
         return redirect('/prodi');
     }
 
     public function destroy(string $id)
+
     {
-        Prodi::destroy($id);
-        return redirect('/prodi');
+    prodi::destroy($id);
+    return redirect('/prodi');
     }
+    
+    
 }
-
-

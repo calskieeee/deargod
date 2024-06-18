@@ -19,9 +19,7 @@ return new class extends Migration
             $table->string('foto');
             $table->string('password');
             $table->foreignid('prodi_id')
-            ->constrained('prodi')
-            ->onUpdate('cascade')
-            ->onDelete('restrict');
+                ->constrained('prodi');
             $table->timestamps();
         });
     }
